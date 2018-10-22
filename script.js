@@ -1,4 +1,15 @@
-
+const default_markdown = "# H1\n" +
+                   "## H2\n" +
+                   "### H3\n" +
+                   "#### H4\n" +
+                   "##### H5\n" +
+                   "*Bold*\n" +
+                   "_Italic_\n" +
+                   "~~Strikethrough~~\n" +
+                   "> Quoted Text\n" +
+                   "> `Code`\n" +
+                   "[Link](http://linkURL.com)"
+;
 
 // 1. identify the target elements
 
@@ -7,15 +18,21 @@ const preview_box = document.getElementById('preview');
 
 // 3. set event handlers
 
-const update_preview_area = function (key_press_event) {
-    const key_pressed = key_press_event.target.value;
-    preview_box.value = key_pressed;
+editor_box.placeholder = default_markdown;
 
-    console.log(preview_box.value);
-
-    preview_box.innerHTML = marked(preview_box.value);
-
-
+const update_preview_area = function (key_event = default_markdown) {
+    if (typeof key_event === 'string' && (key_event !== '')) {
+        preview_box.innerHTML = marked(key_event)
+    }
+    else if (key_event.target.value === '') {
+        preview_box.innerHTML = marked(default_markdown)
+    }
+    else {
+        const key_data = key_event.target.value;
+        preview_box.value = key_data;
+        console.log(preview_box.value);
+        preview_box.innerHTML = marked(preview_box.value);
+    }
 };
 
 // 2. register the listeners
@@ -25,9 +42,5 @@ editor_box.addEventListener('keyup', update_preview_area);
 
 //////////////////////
 
-// convert the preview text to markdown
+window.onload = update_preview_area();
 
-
-
-
-// display markdown in the preview box

@@ -1,12 +1,13 @@
 body {
     font: 1rem "Arial", sans-serif;
+    background-color: #000;
 }
 
 #markdown-container {
 
     margin: 0 auto;
     width: 90vw;
-    border: 1px dashed white;
+    /*border: 1px dashed white;*/
 
     display: flex;
     flex-direction: row;
