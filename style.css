@@ -1,0 +1,39 @@
+body {
+    font: 1rem "Arial", sans-serif;
+}
+
+#markdown-container {
+
+    margin: 0 auto;
+    width: 90vw;
+    border: 1px dashed white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+#preview, #editor {
+    height: 90vh;
+    width: 45vw;
+    border: 1px dotted pink;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
